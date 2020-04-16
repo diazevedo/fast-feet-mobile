@@ -1,19 +1,17 @@
 import React from 'react';
 
-import { View, Text, SafeAreaView } from 'react-native';
+import logo from '~/assets/images/logo.png';
+
+import * as C from './styles';
 
 const Main = () => (
-  <SafeAreaView style={{ backgroundColor: '#025BBF', flex: 1 }}>
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: '#025BBF',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}>
-      <Text>Init</Text>
-    </View>
-  </SafeAreaView>
+  <C.Container>
+    <C.Image source={logo} />
+    <C.Input placeholder="Your ID" />
+    <C.Button>
+      <C.Text>Login</C.Text>
+    </C.Button>
+  </C.Container>
 );
 
 export default Main;
