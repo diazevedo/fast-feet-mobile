@@ -27,7 +27,6 @@ export const Button = styled(RectButton)`
   margin-top: 20px;
   height: 46px;
   width: 325px;
-  /* background: #e1e2e7; */
   background: #057dcd;
   border-radius: 4px;
 
