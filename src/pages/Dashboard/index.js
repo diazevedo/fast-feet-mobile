@@ -14,16 +14,18 @@ import * as S from './styles';
 
 export default function Dashboard({ navigation }) {
   const [deliveries, setDeliveries] = useState([]);
+  const [deliveriesStatus, setDeliveriesStatus] = useState();
   const dispactch = useDispatch();
 
   const user = useSelector((state) => state.user);
   const formatDate = (date) => format(parseISO(date), 'dd/MM/yyyy');
 
   const loadDeliveries = useCallback(
-    async (status) => {
+    async (deliveryStatus) => {
       try {
         const response = await api.get(
           `/couriers/${user.profile.id}/deliveries`,
+          { params: { status: deliveryStatus } },
         );
 
         const deliveriesFormatted = response.data.map((d) => ({
@@ -40,8 +42,8 @@ export default function Dashboard({ navigation }) {
   );
 
   useEffect(() => {
-    loadDeliveries();
-  }, [loadDeliveries]);
+    loadDeliveries(deliveriesStatus);
+  }, [deliveriesStatus, loadDeliveries]);
 
   const handleClickLogOut = () => {
     dispactch(signOut());
@@ -68,14 +70,15 @@ export default function Dashboard({ navigation }) {
         </S.Header>
 
         <S.HeaderList>
-          <S.NameText>Deliveries</S.NameText>
-
+          <S.Button onPress={() => setDeliveriesStatus('')}>
+            <S.NameText>Deliveries</S.NameText>
+          </S.Button>
           <S.ViewRow>
-            <S.ButtonFilter onPress={() => navigation.navigate('Profile')}>
+            <S.ButtonFilter onPress={() => setDeliveriesStatus('pending')}>
               <S.TextFilter>Pending</S.TextFilter>
             </S.ButtonFilter>
 
-            <S.ButtonFilter onPress={() => navigation.navigate('Profile')}>
+            <S.ButtonFilter onPress={() => setDeliveriesStatus('delivered')}>
               <S.TextFilter>Delivered</S.TextFilter>
             </S.ButtonFilter>
           </S.ViewRow>

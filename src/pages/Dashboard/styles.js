@@ -50,6 +50,8 @@ export const HeaderList = styled(ViewRow)`
   justify-content: space-between;
 `;
 
+export const Button = styled.TouchableOpacity``;
+
 export const ButtonFilter = styled.TouchableOpacity`
   border-bottom-color: #025bbf;
   border-bottom-width: 1px;

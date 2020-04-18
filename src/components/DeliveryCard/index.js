@@ -1,11 +1,12 @@
 import React from 'react';
-
+import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import * as S from './styles';
 
 export default function DeliveryCard({ delivery }) {
-  console.tron.log(delivery);
+  const navigation = useNavigation();
+
   return (
     <S.Container>
       <S.DeliverHeader>
@@ -47,9 +48,9 @@ export default function DeliveryCard({ delivery }) {
         </S.InfoItem>
 
         <S.InfoItem>
-          <S.ButtonFilter onPress={() => console.tron.log(delivery)}>
+          <S.Button onPress={() => navigation.navigate('Profile')}>
             <S.ButtonText>See Details</S.ButtonText>
-          </S.ButtonFilter>
+          </S.Button>
         </S.InfoItem>
       </S.Infos>
     </S.Container>

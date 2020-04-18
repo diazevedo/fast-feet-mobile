@@ -81,7 +81,7 @@ export const InfoText = styled.Text`
   margin-top: 5px;
 `;
 
-export const ButtonFilter = styled.TouchableOpacity``;
+export const Button = styled.TouchableOpacity``;
 
 export const ButtonText = styled.Text`
   color: #025bbf;
