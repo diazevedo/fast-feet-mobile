@@ -9,8 +9,8 @@ export function* signIn({ payload }) {
     const { id } = payload;
 
     const response = yield call(api.post, 'sessions/couriers', { id });
-    console.tron.log(response);
-    const { token, user } = response.data;
+
+    const { token, courier: user } = response.data;
 
     api.defaults.headers.Authorization = `Bearer ${token}`;
 

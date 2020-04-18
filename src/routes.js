@@ -52,14 +52,10 @@ function deliveryStack() {
   );
 }
 
-const Routes = (isSigned = false) => {
-  const LoginStack = () => {
-    <Stack.Screen name="Login" component={Main} title="Login" />;
-  };
-
+export default function Routes(isSigned = false) {
   return !isSigned ? (
     <Stack.Navigator headerMode="none">
-      <LoginStack />
+      <Stack.Screen name="Login" component={Main} title="Login" />
     </Stack.Navigator>
   ) : (
     <Tabs.Navigator
@@ -98,6 +94,4 @@ const Routes = (isSigned = false) => {
       />
     </Tabs.Navigator>
   );
-};
-
-export default Routes;
+}

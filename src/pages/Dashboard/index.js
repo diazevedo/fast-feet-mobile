@@ -1,14 +1,52 @@
-import React from 'react';
-import { Text, TouchableOpacity } from 'react-native';
-
+import React, { useEffect, useState, useCallback } from 'react';
+import { TouchableOpacity } from 'react-native';
+import { format, parseISO } from 'date-fns';
+import { useDispatch, useSelector } from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+
+import { signOut } from '~/store/modules/auth/actions';
+
+import api from '~/services/api';
 
 import DeliveryCard from '~/components/DeliveryCard';
 
 import * as S from './styles';
 
 export default function Dashboard({ navigation }) {
-  // console.tron.log(navigation);
+  const [deliveries, setDeliveries] = useState([]);
+  const dispactch = useDispatch();
+
+  const user = useSelector((state) => state.user);
+  const formatDate = (date) => format(parseISO(date), 'dd/MM/yyyy');
+
+  const loadDeliveries = useCallback(
+    async (status) => {
+      try {
+        const response = await api.get(
+          `/couriers/${user.profile.id}/deliveries`,
+        );
+
+        const deliveriesFormatted = response.data.map((d) => ({
+          ...d,
+          created: formatDate(d.createdAt),
+        }));
+
+        setDeliveries(deliveriesFormatted);
+      } catch (error) {
+        console.tron.log(error);
+      }
+    },
+    [user.profile.id],
+  );
+
+  useEffect(() => {
+    loadDeliveries();
+  }, [loadDeliveries]);
+
+  const handleClickLogOut = () => {
+    dispactch(signOut());
+  };
+
   return (
     <S.SafeAreaView>
       <S.Container>
@@ -24,7 +62,7 @@ export default function Dashboard({ navigation }) {
               <S.NameText>Gaspar Antunes</S.NameText>
             </S.ViewColumn>
           </S.ViewRow>
-          <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
+          <TouchableOpacity onPress={() => handleClickLogOut()}>
             <Icon name="input" size={26} color="#E74040" />
           </TouchableOpacity>
         </S.Header>
@@ -44,15 +82,9 @@ export default function Dashboard({ navigation }) {
         </S.HeaderList>
 
         <S.List
-          data={[
-            {
-              id: 1,
-              date: '14/01/2020',
-              city: 'Porto Alegre',
-            },
-          ]}
+          data={deliveries}
           keyExtractor={(item) => String(item.id)}
-          renderItem={({ item }) => <DeliveryCard />}
+          renderItem={({ item }) => <DeliveryCard delivery={item} />}
         />
       </S.Container>
     </S.SafeAreaView>

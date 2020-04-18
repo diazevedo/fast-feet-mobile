@@ -6,14 +6,13 @@ export const SafeAreaView = styled.SafeAreaView`
 `;
 
 export const Container = styled.View`
-  padding: 15px 20px;
+  padding: 15px 20px 150px;
   background: #fff;
 `;
 
 export const Header = styled.View`
   width: 350px;
   height: 80px;
-
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
@@ -63,4 +62,6 @@ export const TextFilter = styled.Text`
   font-weight: bold;
 `;
 
-export const List = styled.FlatList``;
+export const List = styled.FlatList.attrs({
+  showsVerticalScrollIndicator: false,
+})``;

@@ -11,7 +11,7 @@ export const DeliverHeader = styled.View`
   flex-direction: row;
   align-items: center;
   border-radius: 4px;
-  padding: 10px;
+  padding: 10px 15px 10px;
 `;
 
 export const DeliverText = styled.Text`
@@ -47,7 +47,7 @@ export const Point = styled.View`
   height: 10px;
   border: 1px solid #025bbf;
   border-radius: 5px;
-  background: #025bbf;
+  background: ${(props) => (props.pointed === 1 ? '#025bbf' : '#FFF')};
 `;
 
 export const StatusItem = styled.Text`
@@ -78,6 +78,7 @@ export const InfoText = styled.Text`
   color: #444444;
   font-size: 14px;
   font-weight: bold;
+  margin-top: 5px;
 `;
 
 export const ButtonFilter = styled.TouchableOpacity``;
