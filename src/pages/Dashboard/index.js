@@ -61,7 +61,7 @@ export default function Dashboard({ navigation }) {
             />
             <S.ViewColumn>
               <S.WelcomeText>Welcome back, </S.WelcomeText>
-              <S.NameText>Gaspar Antunes</S.NameText>
+              <S.NameText>{user.profile.name}</S.NameText>
             </S.ViewColumn>
           </S.ViewRow>
           <TouchableOpacity onPress={() => handleClickLogOut()}>
