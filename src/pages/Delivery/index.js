@@ -15,12 +15,9 @@ export default function Delivery({ navigation, route }) {
   const user = useSelector((state) => state.user);
 
   const handleClickPickDelivery = async (id) => {
-    console.tron.log(id);
     try {
-      const response = await api.put(
-        `couriers/${user.profile.id}/deliveries/${id}/start`,
-      );
-      console.tron.log(response.data);
+      await api.put(`couriers/${user.profile.id}/deliveries/${id}/start`);
+
       Alert.alert('All good.', 'Delivery has been picked up.');
       navigation.navigate('Dashboard');
     } catch (error) {
@@ -71,7 +68,7 @@ export default function Delivery({ navigation, route }) {
       <S.Action>
         <S.ButtonWrapper isFirstColum={1}>
           <S.ButtonAction
-            onPress={() => navigation.navigate('', { id: delivery.id })}>
+            onPress={() => navigation.navigate('Problem', { id: delivery.id })}>
             <Icon name="close" size={30} color="#E74040" />
             <S.ButtonText>Informar problema</S.ButtonText>
           </S.ButtonAction>
