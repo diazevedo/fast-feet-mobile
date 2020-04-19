@@ -14,12 +14,27 @@ export const Header = styled.View`
   width: 350px;
   height: 80px;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 `;
 
+export const ViewImage = styled.View`
+  width: 70px;
+  height: 70px;
+  border-radius: 35px;
+  background: #c1deff;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0;
+`;
+
+export const TextProfile = styled.Text`
+  font-size: 30px;
+  color: #025bbf;
+`;
+
 export const Image = styled.Image`
-  width: 60px;
+  width: 70px;
   height: 70px;
   border-radius: 35px;
 `;
@@ -35,12 +50,12 @@ export const ViewColumn = styled.View`
 `;
 
 export const WelcomeText = styled.Text`
-  font-size: 12px;
+  font-size: 14px;
   color: #666666;
 `;
 
 export const NameText = styled.Text`
-  font-size: 22px;
+  font-size: 24px;
   color: #444444;
   font-weight: bold;
 `;
@@ -53,13 +68,14 @@ export const HeaderList = styled(ViewRow)`
 export const Button = styled.TouchableOpacity``;
 
 export const ButtonFilter = styled.TouchableOpacity`
-  border-bottom-color: #025bbf;
+  border-bottom-color: ${(props) =>
+    props.selected ? '#025bbf' : 'transparent'};
   border-bottom-width: 1px;
   margin-left: 20px;
 `;
 
 export const TextFilter = styled.Text`
-  color: #025bbf;
+  color: ${(props) => (props.selected ? '#025bbf' : '#999999')};
   font-size: 14px;
   font-weight: bold;
 `;
@@ -67,3 +83,11 @@ export const TextFilter = styled.Text`
 export const List = styled.FlatList.attrs({
   showsVerticalScrollIndicator: false,
 })``;
+
+export const NothingHere = styled.View`
+  align-items: center;
+  width: 100%;
+  margin-top: 150px;
+  padding: 15px;
+  border-radius: 4px;
+`;

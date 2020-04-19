@@ -40,13 +40,16 @@ export default function Confirm({ navigation, route }) {
 
   const handleSubmit = async () => {
     try {
-      if (imageId) {
-        await api.put(`couriers/${user.profile.id}/deliveries/${id}/finish`, {
-          file_id: imageId,
-        });
-        Alert.alert('All good', 'Yes, great job!');
-        navigation.navigate('Dashboard');
+      if (!imageId) {
+        return Alert.alert('Error', 'Plase upload a image');
       }
+
+      await api.put(`couriers/${user.profile.id}/deliveries/${id}/finish`, {
+        file_id: imageId,
+      });
+
+      Alert.alert('All good', 'Yes, great job!');
+      navigation.navigate('Dashboard');
     } catch (error) {
       Alert.alert('Sorry', 'Something went wrong');
     }

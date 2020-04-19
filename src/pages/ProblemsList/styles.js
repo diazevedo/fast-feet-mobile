@@ -47,3 +47,17 @@ export const Date = styled.Text`
   color: #c1c1c1;
   font-size: 14px;
 `;
+
+export const NothingHere = styled.View`
+  align-items: center;
+  width: 100%;
+  margin-top: 150px;
+  padding: 15px;
+  border-radius: 4px;
+`;
+
+export const TextNothing = styled.Text`
+  font-size: 24px;
+  color: #444444;
+  font-weight: bold;
+`;

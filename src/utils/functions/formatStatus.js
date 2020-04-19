@@ -10,5 +10,5 @@ export default ({ canceled_at, end_date, start_date }) => {
     return 'in transit';
   }
 
-  return 'pending';
+  return 'ready to pick up';
 };

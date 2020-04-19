@@ -34,7 +34,7 @@ export const Line = styled.View`
   height: 2px;
   background: #025bbf;
   position: absolute;
-  top: 14px;
+  top: 5px;
   left: 10px;
 `;
 
@@ -47,6 +47,7 @@ export const Point = styled.View`
   height: 10px;
   border: 1px solid #025bbf;
   border-radius: 5px;
+  margin-top: -9px;
   background: ${(props) => (props.pointed === 1 ? '#025bbf' : '#FFF')};
 `;
 
@@ -54,8 +55,8 @@ export const StatusItem = styled.Text`
   position: absolute;
   text-align: center;
   width: 70px;
-  margin-top: 15px;
-  font-size: 12px;
+  margin-top: 5px;
+  font-size: 13px;
   left: -30px;
   color: #999;
 `;
@@ -70,7 +71,7 @@ export const Infos = styled.View`
 
 export const InfoTitle = styled.Text`
   color: #999999;
-  font-size: 10px;
+  font-size: 14px;
 `;
 
 export const InfoItem = styled.View``;
@@ -86,5 +87,6 @@ export const Button = styled.TouchableOpacity``;
 
 export const ButtonText = styled.Text`
   color: #025bbf;
+  font-size: 14px;
   font-weight: bold;
 `;

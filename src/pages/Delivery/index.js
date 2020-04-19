@@ -36,20 +36,26 @@ export default function Delivery({ navigation, route }) {
           <Icon name="local-shipping" size={30} color="#025bbf" />
           <S.DeliveryText>Delivery Details</S.DeliveryText>
         </S.DeliveryHeader>
+
         <S.InfoTitle>Recipient</S.InfoTitle>
         <S.InfoText>{delivery.recipient.name}</S.InfoText>
+
         <S.InfoTitle>ENDEREÇO DE ENTREGA</S.InfoTitle>
         <S.InfoText>{formatAddress(delivery.recipient)}</S.InfoText>
+
         <S.InfoTitle>PRODUTO</S.InfoTitle>
         <S.InfoText isLast>{delivery.product}</S.InfoText>
       </S.Card>
+
       <S.StatusCard>
         <S.DeliveryHeader>
           <Icon name="event" size={30} color="#025bbf" />
           <S.DeliveryText>Delivery Status</S.DeliveryText>
         </S.DeliveryHeader>
+
         <S.InfoTitle>Status</S.InfoTitle>
         <S.InfoText>{formatStatus(delivery)}</S.InfoText>
+
         <S.ViewRow>
           <S.ViewColumn>
             <S.InfoTitle>Data de retirada</S.InfoTitle>
@@ -61,14 +67,20 @@ export default function Delivery({ navigation, route }) {
           </S.ViewColumn>
         </S.ViewRow>
       </S.StatusCard>
+
       <S.Action>
         <S.ButtonWrapper isFirstColum={1}>
           <S.ButtonAction
-            onPress={() => navigation.navigate('Problem', { id: delivery.id })}>
+            onPress={() => navigation.navigate('Problem', { id: delivery.id })}
+            disabled={
+              formatStatus(delivery) === 'delivered' ||
+              formatStatus(delivery) === 'ready to pick up'
+            }>
             <Icon name="close" size={30} color="#E74040" />
             <S.ButtonText>Informar problema</S.ButtonText>
           </S.ButtonAction>
         </S.ButtonWrapper>
+
         <S.ButtonWrapper>
           <S.ButtonAction
             onPress={() =>
@@ -78,15 +90,23 @@ export default function Delivery({ navigation, route }) {
             <S.ButtonText>Visualizar problema</S.ButtonText>
           </S.ButtonAction>
         </S.ButtonWrapper>
+
         <S.ButtonWrapper isLast={1} isFirstColum={1}>
-          <S.ButtonAction onPress={() => handleClickPickDelivery(delivery.id)}>
+          <S.ButtonAction
+            onPress={() => handleClickPickDelivery(delivery.id)}
+            disabled={
+              formatStatus(delivery) === 'delivered' ||
+              formatStatus(delivery) === 'in transit'
+            }>
             <Icon name="airport-shuttle" size={30} color="#025bbf" />
             <S.ButtonText>Pick up delivery</S.ButtonText>
           </S.ButtonAction>
         </S.ButtonWrapper>
+
         <S.ButtonWrapper isLast={1}>
           <S.ButtonAction
-            onPress={() => navigation.navigate('Confirm', { id: delivery.id })}>
+            onPress={() => navigation.navigate('Confirm', { id: delivery.id })}
+            disabled={formatStatus(delivery) !== 'in transit'}>
             <Icon name="done" size={30} color="#33A36B" />
             <S.ButtonText>Finalizar entrega</S.ButtonText>
           </S.ButtonAction>

@@ -13,6 +13,7 @@ export default function ProblemsList({ navigation, route }) {
   useEffect(() => {
     const loadProblems = async () => {
       const response = await api.get(`parcels/problems/${id}`);
+      console.tron.log(response.data);
       setProblems(response.data);
     };
 
@@ -25,16 +26,22 @@ export default function ProblemsList({ navigation, route }) {
         <StatusBar barStyle="light-content" backgroundColor="#7159c1" />
       </S.ContainerStatusBar>
       <S.ProblemHeader>{`Delivery ${id}`}</S.ProblemHeader>
-      <S.List
-        data={problems}
-        keyExtractor={(item) => String(item.id)}
-        renderItem={({ item }) => (
-          <S.Card>
-            <S.Description>{item.description}</S.Description>
-            <S.Date>{formatDate(item.created_at)}</S.Date>
-          </S.Card>
-        )}
-      />
+      {problems.length > 0 ? (
+        <S.List
+          data={problems}
+          keyExtractor={(item) => String(item.id)}
+          renderItem={({ item }) => (
+            <S.Card>
+              <S.Description>{item.description}</S.Description>
+              <S.Date>{formatDate(item.created_at)}</S.Date>
+            </S.Card>
+          )}
+        />
+      ) : (
+        <S.NothingHere>
+          <S.TextNothing>Any problem so far.</S.TextNothing>
+        </S.NothingHere>
+      )}
     </S.Container>
   );
 }

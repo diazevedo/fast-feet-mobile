@@ -21,10 +21,15 @@ function deliveryStack() {
   return (
     <Stack.Navigator
       screenOptions={{
-        headerTransparent: false,
+        headerTransparent: true,
         headerLeftContainerStyle: {
           marginLeft: 10,
         },
+        headerStyle: {
+          height: 85,
+          backgroundColor: '#025bbf',
+        },
+        headerTintColor: '#fff',
       }}
       headerMode="screen"
       headerShown={false}>
@@ -37,14 +42,8 @@ function deliveryStack() {
         name="Delivery"
         component={Delivery}
         options={{
-          headerTransparent: true,
           title: 'Delivery details',
-          headerStyle: {
-            height: 85, // Specify the height of your custom header
-            backgroundColor: '#025bbf',
-          },
-          headerTintColor: '#FFF',
-          // headerShown: true,
+          headerStyle: {},
           headerLeft: ({ onPress }) => (
             <TouchableOpacity onPress={() => onPress()}>
               <Icon name="chevron-left" size={30} color="#FFF" />
@@ -56,14 +55,7 @@ function deliveryStack() {
         name="Problem"
         component={Problem}
         options={{
-          headerTransparent: true,
           title: 'Report a problem',
-          headerStyle: {
-            height: 85, // Specify the height of your custom header
-            backgroundColor: '#025bbf',
-          },
-          headerTintColor: '#FFF',
-          // headerShown: true,
           headerLeft: ({ onPress }) => (
             <TouchableOpacity onPress={() => onPress()}>
               <Icon name="chevron-left" size={30} color="#FFF" />
@@ -75,14 +67,7 @@ function deliveryStack() {
         name="ProblemsList"
         component={ProblemsList}
         options={{
-          headerTransparent: true,
           title: 'See problems',
-          headerStyle: {
-            height: 85, // Specify the height of your custom header
-            backgroundColor: '#025bbf',
-          },
-          headerTintColor: '#FFF',
-          // headerShown: true,
           headerLeft: ({ onPress }) => (
             <TouchableOpacity onPress={() => onPress()}>
               <Icon name="chevron-left" size={30} color="#FFF" />
@@ -96,11 +81,11 @@ function deliveryStack() {
         options={{
           headerTransparent: true,
           title: 'Confirm delivery',
-          headerStyle: {
-            height: 85, // Specify the height of your custom header
-            backgroundColor: '#025bbf',
-          },
-          headerTintColor: '#FFF',
+          // headerStyle: {
+          //   height: 85, // Specify the height of your custom header
+          //   backgroundColor: '#025bbf',
+          // },
+          // headerTintColor: '#FFF',
           // headerShown: true,
           headerLeft: ({ onPress }) => (
             <TouchableOpacity onPress={() => onPress()}>
