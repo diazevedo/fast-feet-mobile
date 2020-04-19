@@ -11,11 +11,12 @@ export const Container = styled.View`
 `;
 
 export const Header = styled.View`
-  width: 350px;
+  width: 100%;
   height: 80px;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
+  padding: 5px;
 `;
 
 export const ViewImage = styled.View`
@@ -45,7 +46,7 @@ export const ViewRow = styled.View`
 `;
 
 export const ViewColumn = styled.View`
-  margin-left: 15px;
+  margin-left: 5px;
   flex: 1;
 `;
 

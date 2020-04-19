@@ -1,9 +1,13 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.View`
+export const Container = styled.ScrollView`
   flex: 1;
   background: #fff;
+`;
+
+export const Wrapper = styled.View`
   align-items: center;
+  margin-bottom: 10px;
 `;
 
 export const ContainerStatusBar = styled.View`
@@ -86,6 +90,7 @@ export const ButtonWrapper = styled.View`
 
 export const ButtonAction = styled.TouchableOpacity`
   align-items: center;
+
   justify-content: flex-start;
 `;
 

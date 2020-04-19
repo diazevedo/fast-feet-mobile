@@ -15,7 +15,7 @@ export const ContainerStatusBar = styled.View`
 
 export const Card = styled.View`
   margin-top: -50px;
-  height: 78%;
+  height: 70%;
   width: 90%;
   border-radius: 4px;
 `;
