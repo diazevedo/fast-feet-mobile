@@ -25,10 +25,6 @@ export default function Delivery({ navigation, route }) {
     }
   };
 
-  const handleClickCompleteDelivery = async (id) => {
-    // navigation.navigate();
-  };
-
   return (
     <S.Container>
       <S.ContainerStatusBar>
@@ -90,7 +86,7 @@ export default function Delivery({ navigation, route }) {
         </S.ButtonWrapper>
         <S.ButtonWrapper isLast={1}>
           <S.ButtonAction
-            onPress={() => handleClickCompleteDelivery(delivery.id)}>
+            onPress={() => navigation.navigate('Confirm', { id: delivery.id })}>
             <Icon name="done" size={30} color="#33A36B" />
             <S.ButtonText>Finalizar entrega</S.ButtonText>
           </S.ButtonAction>
