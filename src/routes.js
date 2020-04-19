@@ -20,7 +20,7 @@ function deliveryStack() {
       screenOptions={{
         headerTransparent: false,
         headerLeftContainerStyle: {
-          marginLeft: 20,
+          marginLeft: 10,
         },
       }}
       headerMode="screen"
@@ -34,16 +34,17 @@ function deliveryStack() {
         name="Delivery"
         component={Delivery}
         options={{
-          headerTransparent: false,
+          headerTransparent: true,
           title: 'Delivery details',
           headerStyle: {
-            height: 75, // Specify the height of your custom header
-            backgroundColor: '#fff',
+            height: 85, // Specify the height of your custom header
+            backgroundColor: '#025bbf',
           },
-          headerTintColor: '#fff',
+          headerTintColor: '#FFF',
+          // headerShown: true,
           headerLeft: ({ onPress }) => (
             <TouchableOpacity onPress={() => onPress()}>
-              <Icon name="chevron-left" size={30} color="#fff" />
+              <Icon name="chevron-left" size={30} color="#FFF" />
             </TouchableOpacity>
           ),
         }}

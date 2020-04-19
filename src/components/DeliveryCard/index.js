@@ -9,12 +9,12 @@ export default function DeliveryCard({ delivery }) {
 
   return (
     <S.Container>
-      <S.DeliverHeader>
+      <S.DeliveryHeader>
         <Icon name="local-shipping" size={30} color="#025bbf" />
-        <S.DeliverText>{`Delivery ${delivery.id
+        <S.DeliveryText>{`Delivery ${delivery.id
           .toString()
-          .padStart(2, '0')}`}</S.DeliverText>
-      </S.DeliverHeader>
+          .padStart(2, '0')}`}</S.DeliveryText>
+      </S.DeliveryHeader>
 
       <S.Progress>
         <S.Line />
@@ -48,7 +48,8 @@ export default function DeliveryCard({ delivery }) {
         </S.InfoItem>
 
         <S.InfoItem>
-          <S.Button onPress={() => navigation.navigate('Profile')}>
+          <S.Button
+            onPress={() => navigation.navigate('Delivery', { delivery })}>
             <S.ButtonText>See Details</S.ButtonText>
           </S.Button>
         </S.InfoItem>

@@ -7,16 +7,16 @@ export const Container = styled.View`
   border: 2px solid #eee;
 `;
 
-export const DeliverHeader = styled.View`
+export const DeliveryHeader = styled.View`
   flex-direction: row;
   align-items: center;
   border-radius: 4px;
   padding: 10px 15px 10px;
 `;
 
-export const DeliverText = styled.Text`
-  margin-left: 20px;
-  font-size: 14px;
+export const DeliveryText = styled.Text`
+  margin-left: 10px;
+  font-size: 16px;
   color: #025bbf;
   font-weight: bold;
 `;
@@ -72,6 +72,7 @@ export const InfoTitle = styled.Text`
   color: #999999;
   font-size: 10px;
 `;
+
 export const InfoItem = styled.View``;
 
 export const InfoText = styled.Text`
