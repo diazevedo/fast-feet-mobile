@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { ActivityIndicator } from 'react-native';
 import logo from '~/assets/images/logo.png';
 import { signInRequest } from '~/store/modules/auth/actions';
 import { useDispatch, useSelector } from 'react-redux';
@@ -22,7 +22,11 @@ const Main = () => {
         onSubmitEditing={handleSubmit}
       />
       <C.Button onPress={handleSubmit}>
-        <C.Text>Login</C.Text>
+        {loading ? (
+          <ActivityIndicator size="small" color="#fff" />
+        ) : (
+          <C.Text>Login</C.Text>
+        )}
       </C.Button>
     </C.Container>
   );

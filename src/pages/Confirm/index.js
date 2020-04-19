@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
-import { StatusBar, Alert } from 'react-native';
+import { StatusBar, Alert, ActivityIndicator } from 'react-native';
+
 import { useSelector } from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import photoExample from '~/assets/images/signing.png';
@@ -13,12 +14,14 @@ export default function Confirm({ navigation, route }) {
   const cameraRef = useRef(null);
   const [image, setImage] = useState(null);
   const [imageId, setImageId] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const user = useSelector((state) => state.user);
 
   const takePicture = async () => {
     if (cameraRef) {
       try {
+        setLoading(true);
         const options = { quality: 0.5, base64: true };
         const data = await cameraRef.current.takePictureAsync(options);
 
@@ -32,7 +35,9 @@ export default function Confirm({ navigation, route }) {
         const response = await api.post('files', file);
         setImageId(response.data.id);
         setImage(data.uri);
+        setLoading(false);
       } catch (error) {
+        setLoading(false);
         console.tron.log(error);
       }
     }
@@ -78,7 +83,11 @@ export default function Confirm({ navigation, route }) {
       )}
 
       <S.Button onPress={() => handleSubmit()}>
-        <S.ButtonText>Submit</S.ButtonText>
+        {loading ? (
+          <ActivityIndicator size="small" color="#fff" />
+        ) : (
+          <S.ButtonText>Submit</S.ButtonText>
+        )}
       </S.Button>
     </S.Container>
   );
