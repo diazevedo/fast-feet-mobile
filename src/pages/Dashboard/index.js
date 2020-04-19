@@ -1,11 +1,13 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { TouchableOpacity } from 'react-native';
-import { format, parseISO } from 'date-fns';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { useFocusEffect } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import { signOut } from '~/store/modules/auth/actions';
+
+import formatDate from '~/utils/functions/formatDate';
 
 import api from '~/services/api';
 
@@ -19,7 +21,6 @@ export default function Dashboard({ navigation }) {
   const dispactch = useDispatch();
 
   const user = useSelector((state) => state.user);
-  const formatDate = (date) => format(parseISO(date), 'dd/MM/yyyy');
 
   const loadDeliveries = useCallback(
     async (deliveryStatus) => {

@@ -75,7 +75,9 @@ export default function Delivery({ navigation, route }) {
         </S.ButtonWrapper>
         <S.ButtonWrapper>
           <S.ButtonAction
-            onPress={() => navigation.navigate('', { id: delivery.id })}>
+            onPress={() =>
+              navigation.navigate('ProblemsList', { id: delivery.id })
+            }>
             <Icon name="error-outline" size={30} color="#E7BA40" />
             <S.ButtonText>Visualizar problema</S.ButtonText>
           </S.ButtonAction>

@@ -14,6 +14,7 @@ import Dashboard from '~/pages/Dashboard';
 import Delivery from '~/pages/Delivery';
 import Profile from '~/pages/Profile';
 import Problem from '~/pages/Problem';
+import ProblemsList from '~/pages/ProblemsList';
 
 function deliveryStack() {
   return (
@@ -56,6 +57,25 @@ function deliveryStack() {
         options={{
           headerTransparent: true,
           title: 'Report a problem',
+          headerStyle: {
+            height: 85, // Specify the height of your custom header
+            backgroundColor: '#025bbf',
+          },
+          headerTintColor: '#FFF',
+          // headerShown: true,
+          headerLeft: ({ onPress }) => (
+            <TouchableOpacity onPress={() => onPress()}>
+              <Icon name="chevron-left" size={30} color="#FFF" />
+            </TouchableOpacity>
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="ProblemsList"
+        component={ProblemsList}
+        options={{
+          headerTransparent: true,
+          title: 'See problems',
           headerStyle: {
             height: 85, // Specify the height of your custom header
             backgroundColor: '#025bbf',
