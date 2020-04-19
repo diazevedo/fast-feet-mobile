@@ -1,7 +1,10 @@
 import React from 'react';
-import { StatusBar } from 'react-native';
+import { StatusBar, Alert } from 'react-native';
+import { useSelector } from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import * as S from './styles';
+
+import api from '~/services/api';
 
 import formatStatus from '~/utils/functions/formatStatus';
 import formatDate from '~/utils/functions/formatDate';
@@ -9,6 +12,25 @@ import formatAddress from '~/utils/functions/formatAddress';
 
 export default function Delivery({ navigation, route }) {
   const { delivery } = route.params;
+  const user = useSelector((state) => state.user);
+
+  const handleClickPickDelivery = async (id) => {
+    console.tron.log(id);
+    try {
+      const response = await api.put(
+        `couriers/${user.profile.id}/deliveries/${id}/start`,
+      );
+      console.tron.log(response.data);
+      Alert.alert('All good.', 'Delivery has been picked up.');
+      navigation.navigate('Dashboard');
+    } catch (error) {
+      console.tron.log(error);
+    }
+  };
+
+  const handleClickCompleteDelivery = async (id) => {
+    // navigation.navigate();
+  };
 
   return (
     <S.Container>
@@ -48,25 +70,28 @@ export default function Delivery({ navigation, route }) {
       </S.StatusCard>
       <S.Action>
         <S.ButtonWrapper isFirstColum={1}>
-          <S.ButtonAction>
+          <S.ButtonAction
+            onPress={() => navigation.navigate('', { id: delivery.id })}>
             <Icon name="close" size={30} color="#E74040" />
             <S.ButtonText>Informar problema</S.ButtonText>
           </S.ButtonAction>
         </S.ButtonWrapper>
         <S.ButtonWrapper>
-          <S.ButtonAction>
+          <S.ButtonAction
+            onPress={() => navigation.navigate('', { id: delivery.id })}>
             <Icon name="error-outline" size={30} color="#E7BA40" />
             <S.ButtonText>Visualizar problema</S.ButtonText>
           </S.ButtonAction>
         </S.ButtonWrapper>
         <S.ButtonWrapper isLast={1} isFirstColum={1}>
-          <S.ButtonAction>
+          <S.ButtonAction onPress={() => handleClickPickDelivery(delivery.id)}>
             <Icon name="airport-shuttle" size={30} color="#025bbf" />
             <S.ButtonText>Pick up delivery</S.ButtonText>
           </S.ButtonAction>
         </S.ButtonWrapper>
         <S.ButtonWrapper isLast={1}>
-          <S.ButtonAction>
+          <S.ButtonAction
+            onPress={() => handleClickCompleteDelivery(delivery.id)}>
             <Icon name="done" size={30} color="#33A36B" />
             <S.ButtonText>Finalizar entrega</S.ButtonText>
           </S.ButtonAction>

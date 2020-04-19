@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { format, parseISO } from 'date-fns';
 import { useDispatch, useSelector } from 'react-redux';
+import { useFocusEffect } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import { signOut } from '~/store/modules/auth/actions';
@@ -44,6 +45,12 @@ export default function Dashboard({ navigation }) {
   useEffect(() => {
     loadDeliveries(deliveriesStatus);
   }, [deliveriesStatus, loadDeliveries]);
+
+  useFocusEffect(
+    useCallback(() => {
+      loadDeliveries();
+    }, [loadDeliveries]),
+  );
 
   const handleClickLogOut = () => {
     dispactch(signOut());
