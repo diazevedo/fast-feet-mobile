@@ -11,7 +11,6 @@ export default function Problem({ navigation, route }) {
   const [description, setDescription] = useState('');
 
   const handleSubmit = async () => {
-    console.tron.log('kjbh');
     try {
       await api.post(`/parcels/${id}/problems`, {
         description,

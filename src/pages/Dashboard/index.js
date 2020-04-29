@@ -79,7 +79,6 @@ export default function Dashboard() {
             <Icon name="input" size={26} color="#E74040" />
           </TouchableOpacity>
         </S.Header>
-
         <S.HeaderList>
           <S.Button onPress={() => setDeliveriesStatus('all')}>
             <S.NameText>Deliveries</S.NameText>

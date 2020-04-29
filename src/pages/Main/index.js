@@ -14,20 +14,22 @@ const Main = () => {
   const handleSubmit = () => dispatch(signInRequest(id));
   return (
     <C.Container>
-      <C.Image source={logo} />
-      <C.Input
-        returnKeyType="send"
-        placeholder="Your ID"
-        onChangeText={setId}
-        onSubmitEditing={handleSubmit}
-      />
-      <C.Button onPress={handleSubmit}>
-        {loading ? (
-          <ActivityIndicator size="small" color="#fff" />
-        ) : (
-          <C.Text>Login</C.Text>
-        )}
-      </C.Button>
+      <C.ContentContainer>
+        <C.Image source={logo} />
+        <C.Input
+          returnKeyType="send"
+          placeholder="Your ID"
+          onChangeText={setId}
+          onSubmitEditing={handleSubmit}
+        />
+        <C.Button onPress={handleSubmit}>
+          {loading ? (
+            <ActivityIndicator size="small" color="#fff" />
+          ) : (
+            <C.Text>Login</C.Text>
+          )}
+        </C.Button>
+      </C.ContentContainer>
     </C.Container>
   );
 };

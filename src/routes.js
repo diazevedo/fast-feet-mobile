@@ -30,6 +30,11 @@ function deliveryStack() {
           backgroundColor: '#025bbf',
         },
         headerTintColor: '#fff',
+        headerLeft: ({ onPress }) => (
+          <TouchableOpacity onPress={() => onPress()}>
+            <Icon name="chevron-left" size={30} color="#FFF" />
+          </TouchableOpacity>
+        ),
       }}
       headerMode="screen"
       headerShown={false}>
@@ -44,11 +49,6 @@ function deliveryStack() {
         options={{
           title: 'Delivery details',
           headerStyle: {},
-          headerLeft: ({ onPress }) => (
-            <TouchableOpacity onPress={() => onPress()}>
-              <Icon name="chevron-left" size={30} color="#FFF" />
-            </TouchableOpacity>
-          ),
         }}
       />
       <Stack.Screen
@@ -56,11 +56,6 @@ function deliveryStack() {
         component={Problem}
         options={{
           title: 'Report a problem',
-          headerLeft: ({ onPress }) => (
-            <TouchableOpacity onPress={() => onPress()}>
-              <Icon name="chevron-left" size={30} color="#FFF" />
-            </TouchableOpacity>
-          ),
         }}
       />
       <Stack.Screen
@@ -68,11 +63,6 @@ function deliveryStack() {
         component={ProblemsList}
         options={{
           title: 'See problems',
-          headerLeft: ({ onPress }) => (
-            <TouchableOpacity onPress={() => onPress()}>
-              <Icon name="chevron-left" size={30} color="#FFF" />
-            </TouchableOpacity>
-          ),
         }}
       />
       <Stack.Screen
@@ -81,17 +71,6 @@ function deliveryStack() {
         options={{
           headerTransparent: true,
           title: 'Confirm delivery',
-          // headerStyle: {
-          //   height: 85, // Specify the height of your custom header
-          //   backgroundColor: '#025bbf',
-          // },
-          // headerTintColor: '#FFF',
-          // headerShown: true,
-          headerLeft: ({ onPress }) => (
-            <TouchableOpacity onPress={() => onPress()}>
-              <Icon name="chevron-left" size={30} color="#FFF" />
-            </TouchableOpacity>
-          ),
         }}
       />
     </Stack.Navigator>
@@ -132,7 +111,6 @@ export default function Routes(isSigned = false) {
           tabBarLabel: 'Profile',
           title: 'Profile',
           tabBarVisible: true,
-          headerTintColor: '#9898',
           tabBarIcon: ({ color }) => (
             <Icon name="account-circle" size={30} color={color} />
           ),

@@ -14,6 +14,7 @@ export default function Profile() {
   const handleClickLogOut = () => {
     dispactch(signOut());
   };
+
   return (
     <S.Wrapper>
       {user.avatar && user.avatar.url ? (

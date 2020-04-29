@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import scale from '~/utils/functions/pxToPercentage';
 
 export const Container = styled.View`
   flex: 1;
@@ -9,13 +10,12 @@ export const Container = styled.View`
 export const ContainerStatusBar = styled.KeyboardAvoidingView`
   background: #025bbf;
   width: 100%;
-  height: 155px;
+  height: ${scale(155)};
 `;
 
 export const Card = styled.View`
   margin-top: -50px;
   background: #fff;
-
   height: 40%;
   width: 90%;
   padding: 15px;
@@ -35,7 +35,6 @@ export const InputText = styled.TextInput.attrs({
 
 export const Button = styled.TouchableOpacity`
   margin-top: 20px;
-
   font-size: 18px;
   height: 50px;
   width: 90%;

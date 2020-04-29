@@ -1,7 +1,8 @@
 import styled from 'styled-components/native';
+import scale from '~/utils/functions/pxToPercentage';
 
 export const Container = styled.View`
-  margin-top: 20px;
+  margin-top: ${scale(20)};
   position: relative;
   border-radius: 4px;
   border: 2px solid #eee;
@@ -11,12 +12,12 @@ export const DeliveryHeader = styled.View`
   flex-direction: row;
   align-items: center;
   border-radius: 4px;
-  padding: 10px 15px 10px;
+  padding: ${scale(10)} ${scale(15)} ${scale(10)};
 `;
 
 export const DeliveryText = styled.Text`
-  margin-left: 10px;
-  font-size: 16px;
+  margin-left: ${scale(10)};
+  font-size: ${scale(16)};
   color: #025bbf;
   font-weight: bold;
 `;
@@ -25,8 +26,8 @@ export const Progress = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin: 10px 30px 45px;
-  padding: 10px;
+  margin: ${scale(10)} ${scale(30)} ${scale(45)};
+  padding: ${scale(10)};
 `;
 
 export const Line = styled.View`
@@ -34,8 +35,8 @@ export const Line = styled.View`
   height: 2px;
   background: #025bbf;
   position: absolute;
-  top: 5px;
-  left: 10px;
+  top: ${scale(5)};
+  left: ${scale(10)};
 `;
 
 export const Status = styled.View`
@@ -43,8 +44,8 @@ export const Status = styled.View`
 `;
 
 export const Point = styled.View`
-  width: 10px;
-  height: 10px;
+  width: ${scale(10.5)};
+  height: ${scale(10.5)};
   border: 1px solid #025bbf;
   border-radius: 5px;
   margin-top: -9px;
@@ -54,10 +55,9 @@ export const Point = styled.View`
 export const StatusItem = styled.Text`
   position: absolute;
   text-align: center;
-  width: 70px;
-  margin-top: 5px;
-  font-size: 13px;
-  left: -30px;
+  width: ${scale(70)};
+  margin-top: ${scale(5)};
+  font-size: ${scale(13)};
   color: #999;
 `;
 
@@ -66,27 +66,27 @@ export const Infos = styled.View`
   background: #f8f9fd;
   justify-content: space-between;
   align-items: flex-end;
-  padding: 15px;
+  padding: ${scale(14)};
 `;
 
 export const InfoTitle = styled.Text`
   color: #999999;
-  font-size: 14px;
+  font-size: ${scale(14)};
 `;
 
 export const InfoItem = styled.View``;
 
 export const InfoText = styled.Text`
   color: #444444;
-  font-size: 14px;
+  font-size: ${scale(14)};
   font-weight: bold;
-  margin-top: 5px;
+  margin-top: ${scale(5)};
 `;
 
 export const Button = styled.TouchableOpacity``;
 
 export const ButtonText = styled.Text`
   color: #025bbf;
-  font-size: 14px;
+  font-size: ${scale(14)};
   font-weight: bold;
 `;

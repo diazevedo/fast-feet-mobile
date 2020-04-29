@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import scale from '../../utils/functions/pxToPercentage.js';
 
 export const Container = styled.ScrollView`
   flex: 1;
@@ -7,20 +8,21 @@ export const Container = styled.ScrollView`
 
 export const Wrapper = styled.View`
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: ${scale(40)};
 `;
 
 export const ContainerStatusBar = styled.View`
   background: #025bbf;
   width: 100%;
-  height: 155px;
+  height: ${scale(155)};
 `;
 
 export const Card = styled.View`
-  margin-top: -50px;
+  margin-top: ${scale(-55)};
+
   background: #fff;
   width: 90%;
-  padding: 15px;
+  padding: ${scale(15)};
   border-radius: 4px;
   border: 2px solid #eee;
 `;
@@ -31,22 +33,22 @@ export const DeliveryHeader = styled.View`
 `;
 
 export const DeliveryText = styled.Text`
-  margin-left: 10px;
-  font-size: 18px;
+  margin-left: ${scale(10)};
+  font-size: ${scale(17)};
   color: #025bbf;
   font-weight: bold;
 `;
 
 export const InfoTitle = styled.Text`
   color: #999999;
-  font-size: 18px;
+  font-size: ${scale(17)};
   font-weight: bold;
   text-transform: uppercase;
-  margin: 10px 0;
+  margin: ${scale(9)} 0;
 `;
 
 export const InfoText = styled.Text`
-  font-size: 15px;
+  font-size: ${scale(15)};
   font-weight: normal;
   color: #666666;
   margin-bottom: ${(props) => (props.isLast ? '0px' : '15px')};
@@ -54,7 +56,7 @@ export const InfoText = styled.Text`
 `;
 
 export const StatusCard = styled(Card)`
-  margin-top: 10px;
+  margin-top: ${scale(10)};
 `;
 
 export const ViewRow = styled.View`
@@ -66,7 +68,7 @@ export const ViewColumn = styled.View``;
 
 export const Action = styled.View`
   width: 90%;
-  margin-top: 10px;
+  margin-top: ${scale(10)};
   flex-direction: row;
   border-radius: 4px;
   background: #dae8f7;
@@ -85,17 +87,16 @@ export const ButtonWrapper = styled.View`
   border-bottom-width: ${(props) => (props.isLast === 1 ? '0px' : '1px')};
   width: 50%;
   height: 50%;
-  padding: 10px 15px;
+  padding: ${scale(10)} ${scale(15)};
 `;
 
 export const ButtonAction = styled.TouchableOpacity`
   align-items: center;
-
   justify-content: flex-start;
 `;
 
 export const ButtonText = styled.Text`
-  font-size: 14px;
+  font-size: ${scale(14)};
   font-weight: normal;
   text-align: center;
   color: #999;

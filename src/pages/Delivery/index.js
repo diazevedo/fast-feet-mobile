@@ -15,13 +15,14 @@ export default function Delivery({ navigation, route }) {
   const user = useSelector((state) => state.user);
 
   const handleClickPickDelivery = async (id) => {
+    console.tron.log(id);
     try {
       await api.put(`couriers/${user.profile.id}/deliveries/${id}/start`);
 
       Alert.alert('All good.', 'Delivery has been picked up.');
       navigation.navigate('Dashboard');
-    } catch (error) {
-      console.tron.log(error);
+    } catch ({ response }) {
+      Alert.alert('Sorry.', response.data.error);
     }
   };
 
@@ -29,7 +30,7 @@ export default function Delivery({ navigation, route }) {
     <S.Container>
       <S.Wrapper>
         <S.ContainerStatusBar>
-          <StatusBar barStyle="light-content" backgroundColor="#7159c1" />
+          <StatusBar barStyle="light-content" backgroundColor="#fff" />
         </S.ContainerStatusBar>
 
         <S.Card>
@@ -97,10 +98,7 @@ export default function Delivery({ navigation, route }) {
           <S.ButtonWrapper isLast={1} isFirstColum={1}>
             <S.ButtonAction
               onPress={() => handleClickPickDelivery(delivery.id)}
-              disabled={
-                formatStatus(delivery) === 'delivered' ||
-                formatStatus(delivery) === 'in transit'
-              }>
+              disabled={formatStatus(delivery) === 'delivered'}>
               <Icon name="airport-shuttle" size={30} color="#025bbf" />
               <S.ButtonText>Pick up delivery</S.ButtonText>
             </S.ButtonAction>
