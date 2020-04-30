@@ -13,7 +13,7 @@ export default function ProblemsList({ navigation, route }) {
   useEffect(() => {
     const loadProblems = async () => {
       const response = await api.get(`parcels/problems/${id}`);
-      console.tron.log(response.data);
+
       setProblems(response.data);
     };
 

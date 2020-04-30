@@ -15,7 +15,6 @@ export default function Delivery({ navigation, route }) {
   const user = useSelector((state) => state.user);
 
   const handleClickPickDelivery = async (id) => {
-    console.tron.log(id);
     try {
       await api.put(`couriers/${user.profile.id}/deliveries/${id}/start`);
 

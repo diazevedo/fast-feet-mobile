@@ -38,7 +38,7 @@ export default function Confirm({ navigation, route }) {
         setLoading(false);
       } catch (error) {
         setLoading(false);
-        console.tron.log(error);
+        Alert.alert('Sorry', 'Something went wrong.');
       }
     }
   };
