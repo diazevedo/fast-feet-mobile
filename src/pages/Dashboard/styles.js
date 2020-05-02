@@ -94,3 +94,7 @@ export const NothingHere = styled.View`
   padding: ${scale(14)};
   border-radius: 4px;
 `;
+
+export const CenterLoading = styled.View`
+  margin-top: ${scale(150)};
+`;

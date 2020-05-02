@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ActivityIndicator } from 'react-native';
+import { ActivityIndicator, StatusBar } from 'react-native';
 import logo from '~/assets/images/logo.png';
 import { signInRequest } from '~/store/modules/auth/actions';
 import { useDispatch, useSelector } from 'react-redux';
@@ -14,6 +14,7 @@ const Main = () => {
   const handleSubmit = () => dispatch(signInRequest(id));
   return (
     <C.Container>
+      <StatusBar barStyle="light-content" backgroundColor="#fff" />
       <C.ContentContainer>
         <C.Image source={logo} />
         <C.Input

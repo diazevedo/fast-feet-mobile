@@ -46,18 +46,27 @@ export default function Confirm({ navigation, route }) {
   const handleSubmit = async () => {
     try {
       if (!imageId) {
-        return Alert.alert('Error', 'Plase upload a image');
+        return Alert.alert('Sorry', 'Plase upload a image');
       }
+
+      setLoading(true);
 
       await api.put(`couriers/${user.profile.id}/deliveries/${id}/finish`, {
         file_id: imageId,
       });
 
       Alert.alert('All good', 'Yes, great job!');
+      setLoading(false);
       navigation.navigate('Dashboard');
     } catch (error) {
       Alert.alert('Sorry', 'Something went wrong');
+      setLoading(false);
     }
+  };
+
+  const CleanImagesState = () => {
+    setImage(null);
+    setImageId(null);
   };
 
   return (
@@ -68,7 +77,9 @@ export default function Confirm({ navigation, route }) {
       {image ? (
         <S.Card>
           <S.ImageBackground source={{ uri: image }} />
-          <S.ButtonCapture onPress={() => setImage(null)}>
+          <S.ButtonCapture
+            onPress={() => CleanImagesState()}
+            disabled={loading}>
             <Icon name="close" color="#fff" size={30} />
           </S.ButtonCapture>
         </S.Card>
@@ -76,7 +87,7 @@ export default function Confirm({ navigation, route }) {
         <S.Card>
           <S.Camera ref={cameraRef} captureAudio={false} type="back" />
           <S.ImageBackground source={photoExample} />
-          <S.ButtonCapture onPress={() => takePicture()}>
+          <S.ButtonCapture onPress={() => takePicture()} disabled={loading}>
             <Icon name="photo-camera" color="#fff" size={30} />
           </S.ButtonCapture>
         </S.Card>

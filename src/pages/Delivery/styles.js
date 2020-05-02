@@ -102,3 +102,11 @@ export const ButtonText = styled.Text`
   color: #999;
   width: 50%;
 `;
+
+export const CancelledText = styled.Text`
+  font-size: ${scale(20)};
+  margin-top: ${scale(15)};
+  font-weight: normal;
+  text-align: center;
+  color: #e74040;
+`;

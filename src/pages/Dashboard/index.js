@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, ActivityIndicator } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { useFocusEffect } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -17,12 +17,14 @@ export default function Dashboard() {
   const [deliveries, setDeliveries] = useState([]);
   const [deliveriesStatus, setDeliveriesStatus] = useState('all');
   const [refreshing, setRefreshing] = useState(false);
+  const [loading, setLoading] = useState(true);
   const dispactch = useDispatch();
 
   const user = useSelector((state) => state.user.profile);
 
   const loadDeliveries = useCallback(async () => {
     try {
+      setLoading(true);
       const response = await api.get(`/couriers/${user.id}/deliveries`, {
         params: { status: deliveriesStatus },
       });
@@ -34,8 +36,10 @@ export default function Dashboard() {
 
       setDeliveries(deliveriesFormatted);
       setRefreshing(false);
+      setLoading(false);
     } catch (error) {
       console.tron.log(error);
+      setLoading(true);
     }
   }, [deliveriesStatus, user.id]);
 
@@ -109,19 +113,28 @@ export default function Dashboard() {
             </S.ButtonFilter>
           </S.ViewRow>
         </S.HeaderList>
-        {deliveries.length > 0 ? (
+        {loading ? (
+          <S.CenterLoading>
+            <ActivityIndicator size="large" color="#025bbf" />
+          </S.CenterLoading>
+        ) : (
           <S.List
             onRefresh={loadDeliveries}
             refreshing={refreshing}
             data={deliveries}
             keyExtractor={(item) => String(item.id)}
             renderItem={({ item }) => <DeliveryCard delivery={item} />}
+            ListEmptyComponent={
+              <S.NothingHere>
+                <Icon
+                  name="sentiment-dissatisfied"
+                  size={100}
+                  color="#025bbf"
+                />
+                <S.NameText>Sorry, nothing here.</S.NameText>
+              </S.NothingHere>
+            }
           />
-        ) : (
-          <S.NothingHere>
-            <Icon name="sentiment-dissatisfied" size={100} color="#025bbf" />
-            <S.NameText>Sorry, nothing here.</S.NameText>
-          </S.NothingHere>
         )}
       </S.Container>
     </S.SafeAreaView>
