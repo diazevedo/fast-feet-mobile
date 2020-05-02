@@ -51,7 +51,7 @@ export const InfoText = styled.Text`
   font-size: ${scale(15)};
   font-weight: normal;
   color: #666666;
-  margin-bottom: ${(props) => (props.isLast ? '0px' : '15px')};
+  margin-bottom: ${(props) => (props.isLast ? '0px' : scale(15))};
   text-transform: capitalize;
 `;
 
