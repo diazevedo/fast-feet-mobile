@@ -1,17 +1,14 @@
 import styled from 'styled-components/native';
 import { RectButton } from 'react-native-gesture-handler';
 
-import { Dimensions } from 'react-native';
-
-const { height, width } = Dimensions.get('screen');
-
 export const Container = styled.SafeAreaView`
   /* flex: 1;*/
   height: 100%;
   width: 100%;
   justify-content: center;
   align-items: center;
-  background: #050533;
+  /* background: #050533; */
+  background: #025bbf;
 `;
 
 export const ContentContainer = styled.View`
