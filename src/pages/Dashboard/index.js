@@ -38,7 +38,6 @@ export default function Dashboard() {
       setRefreshing(false);
       setLoading(false);
     } catch (error) {
-      console.tron.log(error);
       setLoading(true);
     }
   }, [deliveriesStatus, user.id]);

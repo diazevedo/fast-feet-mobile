@@ -12,6 +12,7 @@ const Main = () => {
   const loading = useSelector((state) => state.auth.loading);
 
   const handleSubmit = () => dispatch(signInRequest(id));
+
   return (
     <C.Container>
       <StatusBar barStyle="light-content" backgroundColor="#fff" />
