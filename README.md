@@ -46,7 +46,7 @@ Requirements
   - You can create an user using the [Frontend](https://www.github/diazevedo.com/fast-feet-web) of this application.
 
 ```bash
-# clonando o repositório
+# clonning the project
 $ git clone https://github.com/diazevedo/fast-feet-mobile.git
 
 # Go to the repository folder
