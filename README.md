@@ -5,17 +5,17 @@
 <p align="center">
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/diazevedo/fast-feet-mobile">
 
-  <a href="https://github.com/diazevedo">
+  <a href="https://www.linkedin.com/in/diazevedo">
     <img alt="Made by Di Azevedo" src="https://img.shields.io/badge/made%20by-DiAzevedo-%2325b0e6">
   </a>
-
+  
   <img alt="License" src="https://img.shields.io/badge/license-MIT-%2304D361">
 </p>
 
 <h2 align="center">
   <img alt="Login page" src=".github/mb-login.png" width="25%" />
-  <img alt="Login page" src=".github/mb-dashboard.png" width="25%" />
-  <img alt="Login page" src=".github/mb-delivery.png" width="25%" />
+  <img alt="Dashboard page" src=".github/mb-dashboard.png" width="25%" />
+  <img alt="Delivery page" src=".github/mb-delivery.png" width="25%" />
 </h2>
 
 ### Description
@@ -46,7 +46,7 @@ Requirements
   - You can create an user using the [Frontend](https://www.github/diazevedo.com/fast-feet-web) of this application.
 
 ```bash
-# clonning the project
+# cloning the project
 $ git clone https://github.com/diazevedo/fast-feet-mobile.git
 
 # Go to the repository folder
