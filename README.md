@@ -42,8 +42,8 @@ Requirements
 
 - [Node](https://nodejs.org/en/).
 - [Yarn](https://yarnpkg.com/) or [NPM](https://www.npmjs.com/) — I am using yarn commands over this step-by-step.
-- This project consumes the [API](https://www.github/diazevedo.com/fast-feet) have it running.
-  - You can create an user using the [Frontend](https://www.github/diazevedo.com/fast-feet-web) of this application.
+- This project consumes the [API](https://github.com/diazevedo/fast-feet) have it running.
+  - You can create an user using the [Frontend](https://github.com/diazevedo/fast-feet-web) of this application.
 
 ```bash
 # cloning the project
